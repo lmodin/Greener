@@ -24,13 +24,13 @@ var projectSchema = mongoose.Schema({
   type: String,
   description: String
 });
+
 var eventSchema = mongoose.Schema({
   project: String,
   name: String,
   peopleRequested: Number,
   peopleRSVPd: Number,
   date: Date,
-  time: Number,
   extras: [String],
   description: String
 })

@@ -29,17 +29,13 @@ class App extends React.Component {
     })
   }
   componentDidMount() {
-    $.ajax({
-      url: `/projects`,
-      success: (data) => {
+    fetch('/projects')
+      .then(response => response.json())
+      .then(data => {
         this.setState({
           projects: data
         })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
+      })
   }
 
   render() {

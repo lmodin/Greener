@@ -1,11 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var db = require('../database-mongo');
-const cors = require('cors')
+const Cors = require('cors')
 
 var app = express();
-app.use(cors())
+app.use(Cors())
 app.use(express.static(__dirname + '/../react-client/dist'));
+app.use(bodyParser.json());
+
 
 app.get('/projects', function (req, res) {
   db.selectAllProjects(function(err, data) {
@@ -18,7 +20,8 @@ app.get('/projects', function (req, res) {
 });
 
 app.get('/events/:projectName', function (req, res) {
-  db.selectEventsByProject(req.params.projectName, function(err, data) {
+  let project = req.params.projectName.split('_').join(' ');
+  db.selectEventsByProject(project, function(err, data) {
     if(err) {
       res.sendStatus(500);
     } else {
@@ -30,19 +33,19 @@ app.get('/events/:projectName', function (req, res) {
 app.post('/projects/newProject', function (req, res) {
   let project = req.body
   console.log('got post project: ', project)
-  // db.saveEvent(event, function(err, data) {
-  //   if(err) {res.sendStatus(500);}
-  //   else {res.send(200)}
-  // });
+  db.saveProject(project, function(err, data) {
+    if(err) {res.sendStatus(500);}
+    else {res.send(200)}
+  });
 })
 
 app.post('/events/newEvent', function (req, res) {
-  let event = req.body.event
+  let event = req.body
   console.log('got post event: ', event)
-  // db.saveEvent(event, function(err, data) {
-  //   if(err) {res.sendStatus(500);}
-  //   else {res.send(200)}
-  // });
+  db.saveEvent(event, function(err, data) {
+    if(err) {res.sendStatus(500);}
+    else {res.send(200)}
+  });
 })
 
 app.listen(3000, function() {
