@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost:27017/clean');
 
 var db = mongoose.connection;
 
@@ -11,21 +11,76 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
+var projectSchema = mongoose.Schema({
+  name: String,
+  location: {
+    street: String,
+    city: String,
+    state: String,
+    zip: String
+  },
+  owner: String,
+  status: String,
+  type: String,
   description: String
 });
+var eventSchema = mongoose.Schema({
+  project: String,
+  name: String,
+  peopleRequested: Number,
+  peopleRSVPd: Number,
+  date: Date,
+  time: Number,
+  extras: [String],
+  description: String
+})
 
-var Item = mongoose.model('Item', itemSchema);
+var Event = mongoose.model('Event', eventSchema);
+var Project = mongoose.model('Project', projectSchema);
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
+var saveEvent = function(event, callback) {
+  Event.create((event), function(err) {
+    if (err) {
+      callback(err);
     } else {
-      callback(null, items);
+      callback()
     }
   });
 };
 
-module.exports.selectAll = selectAll;
+var saveProject = function(project, callback) {
+  Project.create((project), function(err) {
+    if (err) {
+      callback(err);
+    } else {
+      callback();
+    }
+  });
+};
+
+var selectAllProjects = function(callback) {
+  Project.find({}, function(err, projects) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, projects);
+    }
+  });
+};
+
+var selectEventsByProject = function(project, callback) {
+  Event.find({project: project}, function(err, events) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, events);
+    }
+  });
+};
+
+
+
+module.exports.selectAllProjects = selectAllProjects;
+module.exports.selectEventsByProject = selectEventsByProject;
+module.exports.saveEvent = saveEvent;
+module.exports.saveProject = saveProject;
