@@ -4,6 +4,30 @@ body {
   color: lightgray;
 }
 
+h1 {
+  font-size: 40px;
+}
+
+.home_button {
+  padding: 5px;
+  background-color: lightgreen;
+  color: #003311;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
 .project_list {
   list-style-type: none;
+  font-size: 24px;
+}
+
+.project_list_item {
+  border: 3px solid navy;
+  background-color: lightblue;
+  border-radius: 5px;
+  color: navy;
+  width: 500px;
+  padding: 10px;
 }

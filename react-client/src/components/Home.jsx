@@ -4,7 +4,6 @@ import ProjectList from './ProjectList.jsx';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.projects)
   }
 
   render () {
@@ -16,6 +15,7 @@ class Home extends React.Component {
           viewProject={this.props.viewProject}
           viewEvent={this.props.viewEvent}
         />
+        <h3>Click on any project to see the details</h3>
         <button className="home_button">Create Project</button>
       </div>
     )
