@@ -14,6 +14,7 @@ class App extends React.Component {
     }
     this.viewEvent = this.viewEvent.bind(this);
     this.viewProject = this.viewProject.bind(this);
+    this.viewProjects = this.viewProjects.bind(this);
   }
 
   viewProject(e, project) {
@@ -30,6 +31,14 @@ class App extends React.Component {
     this.setState({
       projectsInView: false,
       eventInView: event,
+      projectInView: null
+    })
+  }
+
+  viewProjects(e) {
+    this.setState({
+      projectsInView: true,
+      eventInView: null,
       projectInView: null
     })
   }
@@ -52,6 +61,7 @@ class App extends React.Component {
           <EventView
             event={this.state.eventInView}
             viewProject={this.viewProject}
+            viewProjects={this.viewProjects}
           />
         </div>
       )
@@ -61,6 +71,7 @@ class App extends React.Component {
           <ProjectView
             project={this.state.projectInView}
             viewEvent={this.viewEvent}
+            viewProjects={this.viewProjects}
           />
         </div>
       )

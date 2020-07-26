@@ -26,16 +26,19 @@ class EventList extends React.Component {
   render() {
     if (this.state.isLoaded) {
       return (
-        <ul className="project_view_event_list">
-          {this.state.events.map(event => (
+        <div className="project_view_event_list">
+          Scheduled events for this project
+          <ul>
+            {this.state.events.map(event => (
             <a onClick={((e) => this.props.viewEvent(e, event))}>
               <EventListItem event={event} />
             </a>
           ))}
-        </ul>
+          </ul>
+        </div>
       )
     } else {
-      return (<div>Loading events</div>)
+      return (<div></div>)
     }
   }
 }
