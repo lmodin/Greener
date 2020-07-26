@@ -2,17 +2,17 @@ import React from 'react';
 import ProjectListItem from './ProjectListItem.jsx';
 
 function ProjectList (props) {
-  console.log('project list props: ', props)
   return (
     <ul className="project_list">
       {props.projects.map(project => {
         return (
-          <ProjectListItem project={project} onClick={(e) => props.viewProject(e, project)} />
+          <a onClick={((e) => props.viewProject(e, project))}>
+            <ProjectListItem project={project} />
+          </a>
         )
       })}
     </ul>
   )
 }
-
 
 export default ProjectList;

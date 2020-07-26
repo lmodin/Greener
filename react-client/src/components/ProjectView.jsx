@@ -1,20 +1,18 @@
 import React from 'react';
+import ProjectDetails from './ProjectDetails.jsx';
+import EventList from './EventList.jsx';
+import ProjectViewMap from './ProjectViewMap.jsx';
 
-class ProjectView extends React.Component {
-  constructor(props) {
-    super(props);
+function ProjectView(props) {
+  console.log('Project View props: ', props)
+  return (
+    <div className="project_view">
+      <ProjectDetails project={props.project} />
+      <EventList project={props.project} viewEvent={props.viewEvent}/>
+      <ProjectViewMap project={props.project} />
+    </div>
+  )
 
-  }
-
-  componentDidMount() {
-    //fetch the events with this project name
-  }
-
-  render () {
-    return (<div>
-      <h1>This is a project</h1>
-    </div>)
-  }
 }
 
 export default ProjectView;

@@ -1,21 +1,62 @@
 body {
+  margin: 0;
   background-color: #003311;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   color: lightgray;
 }
 
 h1 {
   font-size: 40px;
 }
+h3 {
+  font-size: 25px;
+  font-weight: 400;
+}
 
-.home_button {
-  padding: 5px;
-  background-color: lightgreen;
+header {
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 70px;
+  font-size: 80px;
+  font-weight: 600;
+  background-color: #9ccb9b;
+  color: #003311;
+  text-align: center;
+  height: 80px;
+}
+
+.main_welcome {
+  font-size: 50px;
+  text-align: center;
+  padding: 150px;
+}
+#start_here {
+  padding-bottom: 40px;
+}
+.main_button {
+  padding: 15px;
+  background-color: #9ccb9b;
+  color: #003311;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+.projects_page {
+  padding: 10px 40px 0 40px;
+}
+
+.projects_button {
+  padding: 10px;
+  background-color: #9ccb9b;
   color: #003311;
   border: none;
   text-align: center;
   text-decoration: none;
   font-size: 20px;
+  border-radius: 5px;
 }
 
 .project_list {
@@ -24,10 +65,12 @@ h1 {
 }
 
 .project_list_item {
-  border: 3px solid navy;
-  background-color: lightblue;
+  background-color: #9ccb9b;
   border-radius: 5px;
-  color: navy;
+  color: #003311;
   width: 500px;
   padding: 10px;
+}
+.project_list_item_name {
+  font-weight: 600;
 }
