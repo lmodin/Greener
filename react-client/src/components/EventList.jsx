@@ -18,12 +18,17 @@ class EventList extends React.Component {
       .then(events => {
         let pastEvents = [];
         var now = new Date();
+        console.log(now)
         for (var i = 0; i < events.length; i++) {
-          if (events[i].date < now) {
+          var date = new Date(events[i].date);
+          //console.log(date)
+          if (date < now) {
             pastEvents.push(events[i]);
-            events.slice(i, 1);
+            events.splice(i, 1);
           }
         }
+        //console.log('pastEvents: ', pastEvents)
+        //console.log('current events: ', events)
         this.setState({
           events: events,
           pastEvents: pastEvents,
@@ -49,7 +54,7 @@ class EventList extends React.Component {
           Scheduled events for this project
           <ul>
             {this.state.events.map(event => (
-            <a onClick={((e) => this.props.viewEvent(e, event))}>
+            <a onClick={((e) => this.props.viewEvent(e, event, this.props.project))}>
               <EventListItem event={event} />
             </a>
           ))}

@@ -30,9 +30,13 @@ var projectSchema = mongoose.Schema({
 
 var eventSchema = mongoose.Schema({
   project: String,
-  name: String,
+  name: {
+    type: String,
+    unique: true,
+  },
   peopleRequested: Number,
   peopleRSVPd: Number,
+  attendees: [String],
   date: Date,
   extras: [String],
   description: String
@@ -44,51 +48,29 @@ var Project = mongoose.model('Project', projectSchema);
 var saveEvent = function(event) {
   var event = Event.create(event);
   return event;
-  // Event.create((event), function(err) {
-  //   if (err) {
-  //     callback(err);
-  //   } else {
-  //     callback()
-  //   }
-  // });
 };
 
 var saveProject = function(project) {
   var project = Project.create(project);
   return project;
-  // Project.create((project), function(err) {
-  //   if (err) {
-  //     callback(err);
-  //   } else {
-  //     callback();
-  //   }
-  // });
 };
 
 var selectAllProjects = function() {
   var projects = Project.find().lean();
   return projects;
-  // Project.find({}, function(err, projects) {
-  //   if(err) {
-  //     callback(err, null);
-  //   } else {
-  //     callback(null, projects);
-  //   }
-  // });
 };
 
+var rsvp = function(rsvp) {
+  let event = Event.findByIdAndUpdate(rsvp.event, {
+    $push: {attendees: rsvp.name},
+    $inc: {peopleRSVPd: rsvp.people}
+  });
+  return event;
+}
 var selectEventsByProject = function(project) {
   var events = Event.find({project: project});
   events.sort({date: 'asc'});
   return events;
-  // Event.find({project: project}, function(err, events) {
-  //   if(err) {
-  //     callback(err, null);
-  //   } else {
-  //     callback(null, events);
-  //   }
-  //   //add a sort functionality to sort by date,
-  // });
 };
 
 
@@ -97,4 +79,5 @@ module.exports = {
   selectEventsByProject: selectEventsByProject,
   saveEvent: saveEvent,
   saveProject: saveProject,
+  rsvp: rsvp
 }

@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 Promise.promisifyAll(require('mongoose'));
 
+//Get all projects
 app.get('/projects', function (req, res) {
   db.selectAllProjects()
     .then((projects) => {
@@ -20,15 +21,9 @@ app.get('/projects', function (req, res) {
       console.log('Error getting all projects: ', err)
       res.sendStatus(500);
     })
-  // db.selectAllProjects(function(err, data) {
-  //   if(err) {
-  //     res.sendStatus(500);
-  //   } else {
-  //     res.json(data);
-  //   }
-  // });
 });
 
+//get all events with specific project name
 app.get('/events/:projectName', function (req, res) {
   let project = req.params.projectName.split('_').join(' ');
   db.selectEventsByProject(project)
@@ -39,15 +34,10 @@ app.get('/events/:projectName', function (req, res) {
       console.log('Error getting events by project name: ', err)
       res.sendState(500);
     })
-  // db.selectEventsByProject(project, function(err, data) {
-  //   if(err) {
-  //     res.sendStatus(500);
-  //   } else {
-  //     res.json(data);
-  //   }
-  // });
+
 });
 
+//Create a new project
 app.post('/projects/newProject', function (req, res) {
   let project = req.body;
   console.log('got post project: ', project);
@@ -57,12 +47,9 @@ app.post('/projects/newProject', function (req, res) {
       console.log('Error saving new project: ', err);
       res.sendStatus(500);
     })
-  // db.saveProject(project, function(err, data) {
-  //   if(err) {res.sendStatus(500);}
-  //   else {res.send(200)}
-  // });
 })
 
+//create a new event
 app.post('/events/newEvent', function (req, res) {
   let event = req.body
   console.log('got post event: ', event)
@@ -72,10 +59,17 @@ app.post('/events/newEvent', function (req, res) {
       console.log('Error saving new event: ', err);
       res.sendStatus(500);
     })
-  // db.saveEvent(event, function(err, data) {
-  //   if(err) {res.sendStatus(500);}
-  //   else {res.send(200)}
-  // });
+})
+
+//Add name, people attending to event based on RSVP
+app.post('/RSVP', function(req, res) {
+  //console.log('Got an RSVP request for people: ', req.body)
+  db.rsvp(req.body)
+    .then(res.send(200))
+    .catch((err) => {
+      console.log('Error saving RSVP: ', err);
+      res.sendStatus(500);
+    })
 })
 
 app.listen(3000, function() {

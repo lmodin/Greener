@@ -13,7 +13,7 @@ function EventListItem (props) {
         {props.event.description}
       </div>
       <div className="event_list_date">
-        <Moment>{props.event.data}</Moment>
+        {props.event.data}
       </div>
     </li>
   )
