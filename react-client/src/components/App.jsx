@@ -18,7 +18,6 @@ class App extends React.Component {
   }
 
   viewProject(e, project) {
-    console.log('a project got clicked! ', project)
     this.setState({
       projectsInView: false,
       eventInView: null,

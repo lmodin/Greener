@@ -4,13 +4,15 @@ import EventList from './EventList.jsx';
 import ProjectViewMap from './ProjectViewMap.jsx';
 
 function ProjectView(props) {
-  console.log('Project View props: ', props)
+  //console.log('Project View props: ', props)
   return (
     <div>
       <div className="project_view">
         <ProjectDetails project={props.project} />
         <EventList project={props.project} viewEvent={props.viewEvent} />
         <button className="project_view_button" onClick={((e) => props.viewProjects(e))}>Back to Projects</button>
+        <button className="create_new_event_button" >Create New Event</button>
+        <button className="old_events_button" >See Past Events</button>
       </div>
       <div className="project_view_map">
         <ProjectViewMap project={props.project} />

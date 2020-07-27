@@ -4,7 +4,6 @@ import 'moment-timezone';
 
 
 function EventListItem (props) {
-  console.log('event list props: ', props)
   return (
     <li className="event_list_item">
       <div className="event_list_item_name">

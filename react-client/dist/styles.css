@@ -85,6 +85,27 @@ header {
   text-align: center;
   text-decoration: none;
   font-size: 20px;
+  margin: 5px;
+}
+.create_new_event_button {
+  padding: 10px;
+  background-color: #9ccb9b;
+  color: #003311;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 5px;
+}
+.old_events_button {
+  padding: 10px;
+  background-color: #9ccb9b;
+  color: #003311;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 5px;
 }
 
 .project_view_map {

@@ -12,7 +12,10 @@ db.once('open', function() {
 });
 
 var projectSchema = mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    unique: true
+  },
   location: {
     street: String,
     city: String,
@@ -38,49 +41,60 @@ var eventSchema = mongoose.Schema({
 var Event = mongoose.model('Event', eventSchema);
 var Project = mongoose.model('Project', projectSchema);
 
-var saveEvent = function(event, callback) {
-  Event.create((event), function(err) {
-    if (err) {
-      callback(err);
-    } else {
-      callback()
-    }
-  });
+var saveEvent = function(event) {
+  var event = Event.create(event);
+  return event;
+  // Event.create((event), function(err) {
+  //   if (err) {
+  //     callback(err);
+  //   } else {
+  //     callback()
+  //   }
+  // });
 };
 
-var saveProject = function(project, callback) {
-  Project.create((project), function(err) {
-    if (err) {
-      callback(err);
-    } else {
-      callback();
-    }
-  });
+var saveProject = function(project) {
+  var project = Project.create(project);
+  return project;
+  // Project.create((project), function(err) {
+  //   if (err) {
+  //     callback(err);
+  //   } else {
+  //     callback();
+  //   }
+  // });
 };
 
-var selectAllProjects = function(callback) {
-  Project.find({}, function(err, projects) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, projects);
-    }
-  });
+var selectAllProjects = function() {
+  var projects = Project.find().lean();
+  return projects;
+  // Project.find({}, function(err, projects) {
+  //   if(err) {
+  //     callback(err, null);
+  //   } else {
+  //     callback(null, projects);
+  //   }
+  // });
 };
 
-var selectEventsByProject = function(project, callback) {
-  Event.find({project: project}, function(err, events) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, events);
-    }
-  });
+var selectEventsByProject = function(project) {
+  var events = Event.find({project: project});
+  events.sort({date: 'asc'});
+  return events;
+  // Event.find({project: project}, function(err, events) {
+  //   if(err) {
+  //     callback(err, null);
+  //   } else {
+  //     callback(null, events);
+  //   }
+  //   //add a sort functionality to sort by date,
+  // });
 };
 
 
-
-module.exports.selectAllProjects = selectAllProjects;
-module.exports.selectEventsByProject = selectEventsByProject;
-module.exports.saveEvent = saveEvent;
-module.exports.saveProject = saveProject;
+module.exports = {
+  selectAllProjects: selectAllProjects,
+  selectEventsByProject: selectEventsByProject,
+  saveEvent: saveEvent,
+  saveProject: saveProject,
+}
