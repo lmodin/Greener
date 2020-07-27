@@ -10,7 +10,7 @@ class EventView extends React.Component {
 
   render () {
     return (<div>
-      <h1>These are the events</h1>
+      <h1>This is the event details</h1>
     </div>)
   }
 }

@@ -88,8 +88,8 @@ class App extends React.Component {
     } else {
       return (
         <div className="main_welcome">
-          <div id="start_here">Click View Projects to get started!</div>
-          <button className="main_button" onClick={((e) => {this.fetchProjects(e)})}>View Projects</button>
+          <div id="start_here">Connect with Clean Projects in your Community</div>
+          <button className="main_button" onClick={((e) => {this.fetchProjects(e)})}>Get Started</button>
         </div>
       )
     }
