@@ -211,8 +211,11 @@ class App extends React.Component {
     } else {
       return (
         <div className="main_welcome">
-          <div id="start_here">Connect with Clean Projects in your Community</div>
-          <button className="styled_button" onClick={((e) => { this.fetchProjects(e) })}>Get Started</button>
+          {/* <header>
+            Cleaner <br /> & Greener
+          </header> */}
+            <div id="start_here">Connect with Clean Projects in your Community</div>
+            <button className="styled_button" onClick={((e) => { this.fetchProjects(e) })}>Get Started</button>
         </div>
       )
     }
