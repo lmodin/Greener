@@ -9,7 +9,7 @@ function ProjectViewMap (props) {
 
   //Geocode.setApiKey(map.map);
   var address = props.project.location.street + ", " + props.project.location.city + ", " + props.project.location.state + ", " + props.project.location.zip
-  console.log('address: ', address)
+  //console.log('address: ', address)
   let getCoords = function() {
     Geocode.fromAddress(address)
       .then(response => {
@@ -22,7 +22,7 @@ function ProjectViewMap (props) {
       }
   }
   let location = getCoords();
-  console.log('location: ',location);
+  //console.log('location: ',location);
   return (
     <div className="project_view_map">
       <Map

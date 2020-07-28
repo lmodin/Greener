@@ -34,15 +34,6 @@ header {
 #start_here {
   padding-bottom: 40px;
 }
-.main_button {
-  padding: 15px;
-  background-color: #9ccb9b;
-  color: #003311;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  font-size: 25px;
-}
 .projects_page_left {
   display: inline-block;
   width: 50%;
@@ -56,16 +47,6 @@ header {
 
 .projects_page {
   padding: 10px 40px 0 40px;
-}
-
-.projects_button {
-  padding: 10px;
-  background-color: #9ccb9b;
-  color: #003311;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  font-size: 20px;
 }
 
 .project_list {
@@ -93,12 +74,6 @@ header {
   font-size: 24px;
 }
 
-.project_view_button,
-.create_new_event_button,
-.old_events_button,
-.event_rsvp_button,
-.cancel_rsvp_button,
-.rsvp_submit_button,
 .styled_button {
   padding: 10px;
   background-color: #9ccb9b;
@@ -169,9 +144,10 @@ header {
   font-size: 18px;
 }
 
-.rsvp_page
-.new_event_page
-.new_project_page {
+.rsvp_page,
+.new_event_page,
+.new_project_page,
+.notifications_page {
   padding-left: 40px;
   padding-top: 25px;
   padding-bottom: 14px;

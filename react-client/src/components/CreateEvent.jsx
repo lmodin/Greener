@@ -130,7 +130,7 @@ class CreateEvent extends React.Component {
          <label>
            Description:
            <input type="text" name="description" onChange={this.handleChange} required />
-         </label>
+         </label> <br />
          <input type="submit" value="Submit" className="styled_button"/>
        </form><br />
        Reminder for cleaners: You are responsible for your own safety, and for bringing your own equipment. <br />

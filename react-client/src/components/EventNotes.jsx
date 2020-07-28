@@ -1,7 +1,7 @@
 import React from 'react';
 
 function EventNotes (props) {
-  console.log('Event Notes props: ', props)
+  //console.log('Event Notes props: ', props)
     return (
       <div className="event_notes">
         Notes from organizer: <br />

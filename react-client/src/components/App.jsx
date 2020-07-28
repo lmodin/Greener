@@ -5,6 +5,7 @@ import Projects from './Projects.jsx';
 import RSVPView from './RSVPView.jsx';
 import CreateEvent from './CreateEvent.jsx';
 import CreateProject from './CreateProject.jsx';
+import NotificationsView from './NotificationsView.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class App extends React.Component {
       projects: [],
       RSVPInView: false,
       creatingNewEvent: false,
-      creatingNewProject: false
+      creatingNewProject: false,
+      notificationsInView: false
     }
 
     this.fetchProjects = this.fetchProjects.bind(this);
@@ -26,6 +28,19 @@ class App extends React.Component {
     this.RSVPtoEvent = this.RSVPtoEvent.bind(this);
     this.createEvent = this.createEvent.bind(this);
     this.createProject = this.createProject.bind(this);
+    this.notifcationsView = this.notifcationsView.bind(this);
+  }
+
+  notifcationsView(e) {
+    this.setState({
+      projectsInView: false,
+      eventInView: null,
+      projectInView: null,
+      RSVPInView: false,
+      creatingNewEvent: false,
+      creatingNewProject: false,
+      notificationsInView: true
+    })
   }
 
   viewProject(e, project) {
@@ -35,7 +50,8 @@ class App extends React.Component {
       projectInView: project,
       RSVPInView: false,
       creatingNewEvent: false,
-      creatingNewProject: false
+      creatingNewProject: false,
+      notificationsInView: false
     })
     e.preventDefault();
   }
@@ -47,7 +63,8 @@ class App extends React.Component {
       projectInView: project,
       RSVPInView: false,
       creatingNewEvent: false,
-      creatingNewProject: false
+      creatingNewProject: false,
+      notificationsInView: false
     })
   }
 
@@ -59,7 +76,8 @@ class App extends React.Component {
       RSVPInView: true,
       projectInView: project,
       creatingNewEvent: false,
-      creatingNewProject: false
+      creatingNewProject: false,
+      notificationsInView: false
     })
   }
 
@@ -70,7 +88,8 @@ class App extends React.Component {
       projectInView: project,
       RSVPInView: false,
       creatingNewEvent: true,
-      creatingNewProject: false
+      creatingNewProject: false,
+      notificationsInView: false
     })
   }
   createProject(e) {
@@ -80,7 +99,8 @@ class App extends React.Component {
       projectsInView: null,
       RSVPInView: false,
       creatingNewEvent: false,
-      creatingNewProject: true
+      creatingNewProject: true,
+      notificationsInView: false
     })
   }
 
@@ -91,7 +111,8 @@ class App extends React.Component {
       projectInView: null,
       RSVPInView: false,
       creatingNewEvent: false,
-      creatingNewProject: false
+      creatingNewProject: false,
+      notificationsInView: false
     })
   }
 
@@ -114,7 +135,8 @@ class App extends React.Component {
             projectInView: null,
             RSVPInView: false,
             creatingNewEvent: false,
-            creatingNewProject: false
+            creatingNewProject: false,
+            notificationsInView: false
           })
         }
       });
@@ -122,7 +144,13 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.RSVPInView) {
+    if (this.state.notificationsInView) {
+      return (
+        <NotificationsView
+          viewProjects={this.viewProjects}
+        />
+      )
+    } else if (this.state.RSVPInView) {
       return (
         <RSVPView
           event={this.state.eventInView}
@@ -177,6 +205,7 @@ class App extends React.Component {
           viewEvent={this.viewEvent}
           viewProject={this.viewProject}
           createProject={this.createProject}
+          notifcationsView={this.notifcationsView}
         />
       )
     } else {

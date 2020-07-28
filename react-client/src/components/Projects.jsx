@@ -20,6 +20,7 @@ class Projects extends React.Component {
             viewEvent={this.props.viewEvent}
           />
           <button className="styled_button" onClick={((e) => { this.props.createProject(e) })}>Create Project</button>
+          <button className="styled_button" onClick={((e) => { this.props.notifcationsView(e) })}>Get Notifications</button>
         </div>
         <div className="projects_page_right">
           <Map
