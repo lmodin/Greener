@@ -48,19 +48,21 @@ class RSVPView extends React.Component {
     }
     return (
       <div className="rsvp_page">
-       RSVP to {this.props.event.name} at {this.props.project.name}
+       <h1>RSVP to the {this.props.event.name} event</h1>
        <form className="rsvp_form" onSubmit={this.handleRSVPSubmit}>
          <label>
            Name:
            <input type="text" name="name" onChange={this.handleChange}/>
-         </label>
+         </label><br />
          <label>
            Number of Cleaners:
            <input type="number" name="people" onChange={this.handleChange} />
-         </label>
+         </label><br />
          <input type="submit" value="RSVP" className="rsvp_submit_button"/>
-       </form>
-       <button className="cancel_rsvp_button" onClick={((e) => this.props.viewEvent(e, this.props.event, this.props.project))}>cancel</button>
+       </form><br />
+       Reminder for cleaners: You are responsible for your own safety, and for bringing your own equipment. <br />
+       We recommend you bring sturdy gloves, trash pickers, several heavy duty trash bags, water and food.<br />
+       <button className="cancel_rsvp_button" onClick={((e) => this.props.viewEvent(e, this.props.event, this.props.project))}>Cancel</button>
       </div>
     )
   }

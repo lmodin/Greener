@@ -18,7 +18,7 @@ class EventList extends React.Component {
       .then(events => {
         let pastEvents = [];
         var now = new Date();
-        console.log(now)
+        //console.log(now)
         for (var i = 0; i < events.length; i++) {
           var date = new Date(events[i].date);
           //console.log(date)

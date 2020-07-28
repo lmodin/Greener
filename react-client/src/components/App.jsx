@@ -3,6 +3,8 @@ import ProjectView from './ProjectView.jsx';
 import EventView from './EventView.jsx';
 import Projects from './Projects.jsx';
 import RSVPView from './RSVPView.jsx';
+import CreateEvent from './CreateEvent.jsx';
+import CreateProject from './CreateProject.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +14,9 @@ class App extends React.Component {
       projectInView: null,
       eventInView: null,
       projects: [],
-      RSVPInView: false
+      RSVPInView: false,
+      creatingNewEvent: false,
+      creatingNewProject: false
     }
 
     this.fetchProjects = this.fetchProjects.bind(this);
@@ -20,6 +24,8 @@ class App extends React.Component {
     this.viewProject = this.viewProject.bind(this);
     this.viewProjects = this.viewProjects.bind(this);
     this.RSVPtoEvent = this.RSVPtoEvent.bind(this);
+    this.createEvent = this.createEvent.bind(this);
+    this.createProject = this.createProject.bind(this);
   }
 
   viewProject(e, project) {
@@ -27,7 +33,9 @@ class App extends React.Component {
       projectsInView: false,
       eventInView: null,
       projectInView: project,
-      RSVPInView: false
+      RSVPInView: false,
+      creatingNewEvent: false,
+      creatingNewProject: false
     })
     e.preventDefault();
   }
@@ -37,7 +45,9 @@ class App extends React.Component {
       projectsInView: false,
       eventInView: event,
       projectInView: project,
-      RSVPInView: false
+      RSVPInView: false,
+      creatingNewEvent: false,
+      creatingNewProject: false
     })
   }
 
@@ -47,7 +57,30 @@ class App extends React.Component {
       projectsInView: false,
       eventInView: event,
       RSVPInView: true,
-      projectInView: project
+      projectInView: project,
+      creatingNewEvent: false,
+      creatingNewProject: false
+    })
+  }
+
+  createEvent(e, project) {
+    this.setState({
+      projectsInView: false,
+      eventInView: null,
+      projectInView: project,
+      RSVPInView: false,
+      creatingNewEvent: true,
+      creatingNewProject: false
+    })
+  }
+  createProject(e) {
+    this.setState({
+      projectsInView: false,
+      eventInView: null,
+      projectsInView: null,
+      RSVPInView: false,
+      creatingNewEvent: false,
+      creatingNewProject: true
     })
   }
 
@@ -56,7 +89,9 @@ class App extends React.Component {
       projectsInView: true,
       eventInView: null,
       projectInView: null,
-      RSVPInView: false
+      RSVPInView: false,
+      creatingNewEvent: false,
+      creatingNewProject: false
     })
   }
 
@@ -77,7 +112,9 @@ class App extends React.Component {
             projectsInView: true,
             eventInView: null,
             projectInView: null,
-            RSVPInView: false
+            RSVPInView: false,
+            creatingNewEvent: false,
+            creatingNewProject: false
           })
         }
       });
@@ -95,8 +132,24 @@ class App extends React.Component {
           refreshProjects={this.fetchProjects}
         />
       )
-    }
-    else if (this.state.eventInView) {
+    } else if (this.state.creatingNewEvent) {
+      return (
+        <CreateEvent
+          project={this.state.projectInView}
+          viewProject={this.viewProject}
+          refreshProjects={this.fetchProjects}
+          viewEvent={this.viewEvent}
+        />
+      )
+    } else if (this.state.creatingNewProject) {
+      return (
+        <CreateProject
+          viewProject={this.viewProject}
+          viewProjects={this.viewProjects}
+          refreshProjects={this.fetchProjects}
+        />
+      )
+    } else if (this.state.eventInView) {
       return (
         <EventView
           event={this.state.eventInView}
@@ -113,6 +166,7 @@ class App extends React.Component {
           project={this.state.projectInView}
           viewEvent={this.viewEvent}
           viewProjects={this.viewProjects}
+          createEvent={this.createEvent}
         />
 
       )
