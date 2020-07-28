@@ -51,7 +51,6 @@ header {
   display: inline-block;
   height: 400px;
   width: 500px;
-  border: 3px solid black;
   vertical-align: top;
 }
 
@@ -100,7 +99,7 @@ header {
 .event_rsvp_button,
 .cancel_rsvp_button,
 .rsvp_submit_button,
-.return_to_project_button {
+.styled_button {
   padding: 10px;
   background-color: #9ccb9b;
   color: #003311;
@@ -123,9 +122,9 @@ header {
 
 .project_view_map {
   display: inline-block;
-  height: 400px;
-  width: 500px;
-  border: 2px solid black;
+  margin-top: 10px;
+  max-height: 400px;
+  max-width: 500px;
   vertical-align: top;
 }
 
@@ -170,7 +169,9 @@ header {
   font-size: 18px;
 }
 
-.rsvp_page {
+.rsvp_page
+.new_event_page
+.new_project_page {
   padding-left: 40px;
   padding-top: 25px;
   padding-bottom: 14px;

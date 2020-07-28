@@ -42,7 +42,7 @@ class RSVPView extends React.Component {
       return (
         <div className="rsvp_page">
           Thank you for RSVPing to {this.props.event.name} <br />
-          <button className="return_to_project_button" onClick={((e) => this.props.refreshProjects(e, this.props.project))}>Return to Project</button>
+          <button className="styled_button" onClick={((e) => this.props.refreshProjects(e, this.props.project))}>Return to Project</button>
         </div>
       )
     }
@@ -58,11 +58,11 @@ class RSVPView extends React.Component {
            Number of Cleaners:
            <input type="number" name="people" onChange={this.handleChange} />
          </label><br />
-         <input type="submit" value="RSVP" className="rsvp_submit_button"/>
+         <input type="submit" value="RSVP" className="styled_button"/>
        </form><br />
        Reminder for cleaners: You are responsible for your own safety, and for bringing your own equipment. <br />
        We recommend you bring sturdy gloves, trash pickers, several heavy duty trash bags, water and food.<br />
-       <button className="cancel_rsvp_button" onClick={((e) => this.props.viewEvent(e, this.props.event, this.props.project))}>Cancel</button>
+       <button className="styled_button" onClick={((e) => this.props.viewEvent(e, this.props.event, this.props.project))}>Cancel</button>
       </div>
     )
   }

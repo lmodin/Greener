@@ -22,12 +22,15 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.5",
     "express": "^4.15.0",
+    "google-map-react": "^1.1.7",
+    "google-maps-react": "^2.0.6",
     "jquery": "^3.1.1",
     "moment": "^2.27.0",
     "moment-timezone": "^0.5.31",
     "mongoose": "^4.8.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-geocode": "^0.2.1",
     "react-moment": "^0.9.7",
     "styled-components": "^5.1.1"
   }

@@ -10,9 +10,9 @@ function ProjectView(props) {
       <div className="project_view">
         <ProjectDetails project={props.project} />
         <EventList project={props.project} viewEvent={props.viewEvent} />
-        <button className="project_view_button" onClick={((e) => props.viewProjects(e))}>Back to Projects</button>
-        <button className="create_new_event_button" onClick={((e) => {props.createEvent(e, props.project)})} >Create New Event</button>
-        <button className="old_events_button" >See Past Events</button>
+        <button className="styled_button" onClick={((e) => props.viewProjects(e))}>Back to Projects</button>
+        <button className="styled_button" onClick={((e) => {props.createEvent(e, props.project)})} >Create New Event</button>
+        <button className="styled_button" >See Past Events</button>
       </div>
       <div className="project_view_map">
         <ProjectViewMap project={props.project} />

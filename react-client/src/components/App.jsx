@@ -176,13 +176,14 @@ class App extends React.Component {
           projects={this.state.projects}
           viewEvent={this.viewEvent}
           viewProject={this.viewProject}
+          createProject={this.createProject}
         />
       )
     } else {
       return (
         <div className="main_welcome">
           <div id="start_here">Connect with Clean Projects in your Community</div>
-          <button className="main_button" onClick={((e) => { this.fetchProjects(e) })}>Get Started</button>
+          <button className="styled_button" onClick={((e) => { this.fetchProjects(e) })}>Get Started</button>
         </div>
       )
     }

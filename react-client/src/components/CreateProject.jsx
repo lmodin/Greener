@@ -5,6 +5,14 @@ class CreateProject extends React.Component {
     super(props);
     this.state = {
       submitted: false,
+      name: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      owner: '',
+      type: '',
+      description: '',
     };
     //console.log('RSVP View props: ', props)
     this.handleChange = this.handleChange.bind(this);
@@ -21,18 +29,19 @@ class CreateProject extends React.Component {
 
   getProject() {
     var project = {
-      name: '',
+      name: this.state.name,
       location: {
-        street: '',
-        city: '',
-        state: '',
-        zip: '',
+        street: this.state.street,
+        city: this.state.city,
+        state: this.state.state,
+        zip: this.state.zip,
       },
       owner: 'Bob Loblaw',
       status: 'dirty',
-      type: '',
-      description: ''
+      type: this.state.type,
+      description: this.state.description
     }
+    return project
   }
 
   handleProjectSubmit(e) {
@@ -51,10 +60,10 @@ class CreateProject extends React.Component {
   render() {
     if (this.state.submitted) {
       return (
-        <div className="rsvp_page">
+        <div className="new_project_page">
           Thank you for creating a new project! <br />
-          <button className="return_to_project_button" onClick={((e) => this.props.refreshProjects(e, this.props.project))}>Return to Projects</button>
-          <button onClick={((e) => { this.props.refreshProjects(e, getProject()) })} >View Project</button>
+          <button className="styled_button" onClick={((e) => this.props.refreshProjects(e, this.props.project))}>Return to Projects</button>
+          <button className="styled_button" onClick={((e) => { this.props.refreshProjects(e, getProject()) })} >View Project</button>
         </div>
       )
     }
@@ -63,20 +72,46 @@ class CreateProject extends React.Component {
         <h1>Create a New Project</h1>
         <form className="new_project_form" onSubmit={this.handleProjectSubmit}>
           <label>
-            Name:
-           <input type="text" name="name" onChange={this.handleChange} />
+            Project Name:
+           <input type="text" name="name" onChange={this.handleChange} required/>
           </label><br />
-          {/* <label>
+          <label>
             Location: <br />
             <label>
-              input type="number" name="street" onChange={this.handleChange} />
+              Street:
+              <input type="text" name="street" onChange={this.handleChange} required/>
+            </label><br />
+            <label>
+              City:
+              <input type="text" name="city" onChange={this.handleChange} required/>
+            </label><br />
+            <label>
+              State:
+              <input type="text" name="state" onChange={this.handleChange} required/>
+            </label><br />
+            <label>
+              Zip:
+              <input type="text" name="zip" onChange={this.handleChange} required/>
             </label>
-          </label><br /> */}
-          <input type="submit" value="RSVP" className="rsvp_submit_button" />
+          </label><br />
+          <label>
+            Your Name:
+            <input type="text" name="owner" onChange={this.handleChange} required/>
+          </label><br />
+          <label htmlFor="type">
+            Type:
+            <select name="type" onChange={this.handleChange} required >
+              <option value="road-side cleanup">road-side cleanup</option>
+              <option value="river-side cleanup">river-side cleanup</option>
+            </select>
+          </label><br />
+          <label>
+            Description:
+            <input type="text" name="description" onChange={this.handleChange} required/>
+          </label> <br />
+          <input type="submit" value="Create Project" className="styled_button" />
         </form><br />
-       Reminder for cleaners: You are responsible for your own safety, and for bringing your own equipment. <br />
-       We recommend you bring sturdy gloves, trash pickers, several heavy duty trash bags, water and food.<br />
-        <button className="cancel_rsvp_button" onClick={((e) => this.props.viewEvent(e, this.props.event, this.props.project))}>Cancel</button>
+        <button className="styled_button" onClick={((e) => this.props.viewProjects(e))}>Cancel</button>
       </div>
     )
   }

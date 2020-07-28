@@ -19,13 +19,13 @@ class EventView extends React.Component {
       <div className="event_page">
         <EventViewDescription className="event_page_description" event={this.props.event} />
         <EventNotes className="event_page_notes" event={this.props.event} />
-        <button className="project_view_button" onClick={((e) => {this.props.viewProject(e, this.props.project)})}>Back to Project</button>
+        <button className="styled_button" onClick={((e) => {this.props.viewProject(e, this.props.project)})}>Back to Project</button>
         <RSVPButton
           eventFull={this.state.eventFull}
           RSVPtoEvent={this.props.RSVPtoEvent}
           event={this.props.event}
           project={this.props.project} />
-        <button className="project_view_button" onClick={((e) => {this.props.viewProjects(e)})} >View all Projects</button>
+        <button className="styled_button" onClick={((e) => {this.props.viewProjects(e)})} >View all Projects</button>
       </div>
     )
   }
