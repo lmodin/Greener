@@ -4,10 +4,6 @@ body {
   font-family: "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #003311;
 }
-#app {
-  max-width: 1200px;
-  margin: 0 auto;
-}
 h1 {
   font-size: 40px;
 }
@@ -16,12 +12,12 @@ h3 {
   font-weight: 400;
 }
 
-header {
+.header {
   margin: 0;
   padding-top: 18px;
-  padding-left: 70px;
-  padding-right: 30px;
-  padding-bottom: 85px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 90px;
   background-color: #9ccb9b;
   color: #003311;
   height: 80px;
@@ -29,10 +25,33 @@ header {
   font-weight: 400;
 }
 
+.header_left {
+  display: inline-block;
+  width: 80%;
+}
+.header_right {
+  display: inline-block;
+  text-align: right;
+  width: 20%;
+  vertical-align: top;
+  margin-top: -6px;
+}
+.header_button {
+  padding: 10px;
+  background-color: #f2f2f2;
+  color: #003311;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
 .main_welcome {
   font-size: 50px;
   text-align: center;
   padding: 150px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 #start_here {
   padding-bottom: 40px;
@@ -50,6 +69,8 @@ header {
 
 .projects_page {
   padding: 10px 40px 0 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .project_list {
@@ -69,12 +90,16 @@ header {
   padding: 25px 0px 0px 40px;
   display: inline-block;
   width: 50%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .event_page {
   padding-left: 40px;
   padding-top: 25px;
   padding-bottom: 14px;
   font-size: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .styled_button {
@@ -87,6 +112,7 @@ header {
   font-size: 20px;
   margin: 5px;
 }
+
 .event_rsvp_button_full {
   padding: 10px;
   background-color: darkgrey;
@@ -150,9 +176,19 @@ header {
 .rsvp_page,
 .new_event_page,
 .new_project_page,
-.notifications_page {
+.notifications_page,
+.about_us_page {
   padding-left: 40px;
   padding-top: 25px;
   padding-bottom: 14px;
   font-size: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about_us_description {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  font-size: 24px;
 }
