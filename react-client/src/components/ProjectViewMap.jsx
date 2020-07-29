@@ -29,7 +29,7 @@ function ProjectViewMap (props) {
         google={props.google}
         zoom={7}
         style={{width: '500px', height: '400px'}}
-        initialCenter={{lat: 47.444, lng: -122.176}}
+        initialCenter={{lat: 46.1382, lng: -122.9382}}
       />
     </div>
   )
