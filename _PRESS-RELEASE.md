@@ -16,38 +16,8 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
 
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  > Litter pickup event scheduler
-
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-  > Community members can schedule a litter pickup event in an area that needs cleaning, and notifications will be sent to users to rsvp and join
-
-## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-  > This app will allow members of a community to come together to improve the world, one litter cleanup event at a time. From start to finish the app will allow a user to create an account, view a map of cleanup events in their area, and RSVP to those events. They will also be able to click on the map to create a new project, mark a project as completed, and schedule new events to clean a project.
-
 ## Problem ##
-  > Describe the problem your product solves.
-  > This app solves pollution and littered areas.
+  > Areas that are littered are often neglected, despite many people being willing to help improve them.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
   > This app empowers community members to take control of cleanup in their neighborhood, and increase community pride.
-
-## Quote from You ##
-  > A quote from a spokesperson in your company.
-  > "Clean for the future"
-
-## How to Get Started ##
-  > Describe how easy it is to get started.
-  > View cleanup events in your city and RSVP today!
-
-## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-  > "I use this app weekly to find events where I can help improve an area that needs cleaning. There's nothing more empowering than working with strangers to make a difference in my home town!"
-
-## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
-  > Visit Clean and RSVP to your first event today!
